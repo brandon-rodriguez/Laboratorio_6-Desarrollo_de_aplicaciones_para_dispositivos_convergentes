@@ -127,6 +127,14 @@
             android:layout_height="wrap_content"
             android:text="Registrar" />
 
+        <Button
+            android:layout_margin="16dp"
+            android:layout_gravity="center"
+            android:id="@+id/btn_verTodos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver usuarios inscritos" />
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </ScrollView>
