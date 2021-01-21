@@ -11,12 +11,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class Register extends AppCompatActivity {
 
     private DatabaseHelper db;
-    private TextInputLayout nombreCompleto, usuario, correo, contraseña, verificarContraseña;
+    private TextInputEditText nombreCompleto, usuario, correo, contraseña, verificarContraseña;
     private RadioGroup rg;
     private Button registro, verTodos;
     private int genero;
@@ -31,11 +32,11 @@ public class Register extends AppCompatActivity {
         registro = (Button) findViewById(R.id.btn_registrar);
         verTodos = (Button) findViewById(R.id.btn_verTodos);
 
-        nombreCompleto = (TextInputLayout) findViewById(R.id.ti_nombre) ;
-        usuario= (TextInputLayout) findViewById(R.id.ti_usuario) ;
-        correo= (TextInputLayout) findViewById(R.id.ti_correo) ;
-        contraseña= (TextInputLayout) findViewById(R.id.ti_contraseña) ;
-        verificarContraseña= (TextInputLayout) findViewById(R.id.ti_confirmar_contraseña) ;
+        nombreCompleto = (TextInputEditText) findViewById(R.id.ti_nombre) ;
+        usuario= (TextInputEditText) findViewById(R.id.ti_usuario) ;
+        correo= (TextInputEditText) findViewById(R.id.ti_correo) ;
+        contraseña= (TextInputEditText) findViewById(R.id.ti_contraseña) ;
+        verificarContraseña= (TextInputEditText) findViewById(R.id.ti_confirmar_contraseña) ;
 
         verTodos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,11 +62,11 @@ public class Register extends AppCompatActivity {
         registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(contraseña.getEditText().getText().toString().equals(verificarContraseña.getEditText().getText().toString())){
-                    String n =nombreCompleto.getEditText().getText().toString();
-                    String c=correo.getEditText().getText().toString();
-                    String us= usuario.getEditText().getText().toString();
-                    String cn=contraseña.getEditText().getText().toString();
+                if(contraseña.getText().toString().equals(verificarContraseña.getText().toString())){
+                    String n =nombreCompleto.getText().toString();
+                    String c=correo.getText().toString();
+                    String us= usuario.getText().toString();
+                    String cn=contraseña.getText().toString();
                     rg = (RadioGroup) findViewById(R.id.rad_group);
 
                     int checkedRadioButtonId = rg.getCheckedRadioButtonId();

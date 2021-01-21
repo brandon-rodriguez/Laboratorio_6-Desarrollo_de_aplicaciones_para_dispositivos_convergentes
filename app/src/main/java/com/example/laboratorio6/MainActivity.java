@@ -10,20 +10,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
-import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseHelper db;
-    private TextInputLayout usuario, contraseña;
+    private TextInputEditText usuario, contraseña;
     private Button login, registro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("Login");
-        usuario = (TextInputLayout) findViewById(R.id.log_usuario);
-        contraseña= (TextInputLayout) findViewById(R.id.log_contraseña);
+        usuario = (TextInputEditText) findViewById(R.id.log_usuario);
+        contraseña= (TextInputEditText) findViewById(R.id.log_contraseña);
         login = (Button) findViewById(R.id.log_ingreso);
         registro = (Button) findViewById(R.id.log_registro);
         db = new DatabaseHelper(this);
@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String usuarioS = usuario.getEditText().getText().toString();
-                String contraseñaS = contraseña.getEditText().getText().toString();
+                String usuarioS = usuario.getText().toString();
+                String contraseñaS = contraseña.getText().toString();
                 Cursor resultado = db.findDataByUser(usuarioS);
                 if(resultado.getCount()==0){
                     presentarMensaje("Error", "Sin datos");
